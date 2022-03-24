@@ -7,9 +7,9 @@ namespace Factory.Models
   {
     //Change to class the DB is dealing with
     
-    // public DbSet<Item> Item { get; set; }
-    // public DbSet<Category> Category { get; set; }
-    // public DbSet<CategoryItem> CategoryItem { get; set; }
+    public DbSet<Engineer> Engineers { get; set; }
+    public DbSet<Machine> Machines { get; set; }
+    public DbSet<EngineerMachine> EngineerMachine { get; set; }
 
     //Change to Project name
     public FactoryContext(DbContextOptions options) : base(options) { }
