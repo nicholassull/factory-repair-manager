@@ -29,7 +29,7 @@ else
     {
       <tr>
         <td scope="row">@(i+1)</td>
-        <td>@Html.ActionLink($"{@Model.ElementAt(i).Model}", "Details", "Clients", new {id = @Model.ElementAt(i).MachineId})</td>
+        <td>@Html.ActionLink($"{@Model.ElementAt(i).Model}", "Details", "Machines", new {id = @Model.ElementAt(i).MachineId})</td>
         <td>@Model.ElementAt(i).OperationalStatus</td>
         @* Add a row for a button to add engineer *@
       </tr>
