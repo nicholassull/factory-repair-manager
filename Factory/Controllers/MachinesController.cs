@@ -44,5 +44,35 @@ namespace Factory.Controllers
       .FirstOrDefault(machine => machine.MachineId == id);
       return View(thisMachine);
     }
+    public ActionResult Edit(int id)
+    {
+      Machine machine = _db.Machines.FirstOrDefault(model => model.MachineId == id);
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      return View(machine);
+    }
+    [HttpPost]
+    public ActionResult Edit(Machine machine, int EngineerId)
+    {
+      bool duplicate = _db.EngineerMachine.Any(join => join.EngineerId == EngineerId && join.MachineId == machine.MachineId);
+      if (EngineerId != 0 && !duplicate)
+      {
+        _db.EngineerMachine.Add(new EngineerMachine() { EngineerId = EngineerId, MachineId = machine.MachineId });
+      }
+      _db.Entry(machine).State = EntityState.Modified;
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
+    public ActionResult Delete(int id)
+    {
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      return View(thisMachine);
+    }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      _db.Machines.Remove(thisMachine);
+      return View("Index");
+    }
   }
 }
