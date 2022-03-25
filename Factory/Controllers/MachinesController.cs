@@ -72,7 +72,8 @@ namespace Factory.Controllers
     {
       Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
       _db.Machines.Remove(thisMachine);
-      return View("Index");
+      _db.SaveChanges();
+      return RedirectToAction("Index");
     }
     public ActionResult AddEngineer(int id)
     {

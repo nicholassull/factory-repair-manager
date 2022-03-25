@@ -1,4 +1,6 @@
-<!-- Change to Project Name -->
+<!-- Check Machine delete functionality -->
+
+
 # _To Do List in C#_
 
 #### By _**Nick Sullivan**_
