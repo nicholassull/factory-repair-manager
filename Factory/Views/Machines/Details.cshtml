@@ -56,5 +56,6 @@
 <hr />
 
 @Html.ActionLink("View Machines", "Index", new {}, new { @class = "btn btn-outline-primary" })
+@Html.ActionLink("Assign Engineer", "AddEngineer", new { id = Model.MachineId }, new { @class = "btn btn-outline-primary" })
 @Html.ActionLink("Edit", "Edit", new { id = Model.MachineId }, new { @class = "btn btn-outline-primary" })
 @Html.ActionLink("Delete", "Delete", new { id = Model.MachineId }, new { @class = "btn btn-outline-primary" })
