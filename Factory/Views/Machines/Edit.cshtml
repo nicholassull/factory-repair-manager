@@ -1,0 +1,41 @@
+@{
+  Layout = "_Layout";
+}
+@model Factory.Models.Machine
+
+<h2>Edit Engineer Details</h2>
+<hr />
+
+<h3>@Html.DisplayFor(model => model.Model)</h3>
+
+<div class="my-5 row justify-content-center">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.MachineId)
+    <div class="form-group">
+      @Html.LabelFor(model => model.Model)
+      @Html.TextBoxFor(model => model.Model, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(model => model.OperationalStatus)
+      @Html.DropDownList("OperationalStatus", new List<SelectListItem>
+      { 
+        new SelectListItem { Text = "Faulty", Value = "Faulty"},
+        new SelectListItem { Text = "Functional", Value = "Functional"},
+      }, "Select Status", new { @class = "form-control"})
+    </div>
+    <div class="form-group date-form-group">
+      @Html.LabelFor(model => model.LastServiced, new { @class = "date-label"})
+      @Html.EditorFor(model => model.LastServiced, new { @class = "form-control date-input"})
+    </div>
+    <div class="form-group">
+      @Html.Label("Assign Engineer")
+      @Html.DropDownList("EngineerId", ViewBag.EngineerId, "Select Engineer", new { @class = "form-control"})
+    </div>
+    <div class="text-center">
+          <input type="submit" value="Add" class="btn btn-success" />
+    </div>
+  }
+</div>
+<hr />
+@Html.ActionLink("View Machines", "Index", new {}, new { @class = "btn btn-outline-primary" })
