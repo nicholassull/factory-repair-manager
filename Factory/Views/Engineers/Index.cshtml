@@ -1,0 +1,29 @@
+@{
+  Layout = "_Layout";
+}
+@using Factory.Models;
+@model List<Factory.Models.Engineer>;
+
+<h2>Registered Engineers</h2>
+<hr />
+
+@if (@Model.Count == 0)
+{
+  <div class="table-empty">
+    <h4>No engineers have been registered yet.</h4>
+    <p>Click below to add a new engineer.</p>
+  </div>
+}
+<div class="row justify-content-center">
+  @foreach (Engineer engineer in Model)
+  { 
+    <div class="engineer-container my-3">
+      @Html.ActionLink($"{engineer.Name}", "Details", new { id = engineer.EngineerId}, new { }) 
+      @* <p>Specialty <br> <strong>@engineer.</strong></p> *@
+    </div>
+  }
+</div>
+
+<hr />
+@Html.ActionLink("Add Stylist", "Create", new {}, new { @class = "btn btn-outline-primary" })
+@Html.ActionLink("Home", "Index", "Home", new {}, new { @class = "btn btn-outline-primary" })
