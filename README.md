@@ -1,11 +1,8 @@
-<!-- Check Machine delete functionality -->
-
-
-# _To Do List in C#_
+# _Factory Repair Manager_
 
 #### By _**Nick Sullivan**_
 
-#### _A simple to do list tracker._
+#### _An application to manage engineers and the machines in need of repair._
 
 ## Technologies Used
 
@@ -13,20 +10,35 @@
 * _.NET 5.0_
 * _ASP.NET Core_
 * _Bootstrap_
+* _Bootswatch_
 * _Razor View Engine_
+* _Entity Framework Core_
+* _MySQL Workbench_
 
 ## Description
 
-_This simple web application allows users input different items that will then be added to a list and displayed. This project is meant to showcase my understanding of ASP.NET Core and MVC web applications._
+_This web application serves as a tool for factory managers to track the engineers responsible for maintaining different machines. By following the instructions bellow, the users will create a local SQL database that contains a many-to-many relationship between the classes of Engineer and Machine. Once the setup is complete, different engineers can be registered into the system with attributes like idle or occupied name, and start date. Machine can also be registered with various attributes and assigned to engineers._
 
 ## Setup Instructions
 
 * _Open your terminal and navigate to the folder you'd like to download the files into._
 * _Run the command below_
-> git clone https://github.com/nicholassull/to-do-list-c-sharp.git
-* _Navigate to ToDoList.Solution/ToDoList in your terminal._
+> git clone https://github.com/nicholassull/factory-repair-manager.git
+* _Download [MySQL Workbench](https://www.mysql.com/products/workbench/) and use it to create a local instance and an associated password._
+* Within the directory ~/Factory, create a file named appsettings.json and input the lines of code bellow.
+> {
+  "ConnectionStrings": {
+      "DefaultConnection": "Server=localhost;Port=3306;database=nicholas_sullivan;uid=root;pwd=[YOUR-PASSWORD];"
+  }
+}
+  * Replace [YOUR-PASSWORD] with the password you created within MySQL Workbench and make sure the port matches your own.
+* _Navigate to ~/Factory in your terminal._
 * _Run the commands below_
->dotnet restore
+>dotnet tool install --global dotnet-ef --version 3.0.0
+
+>dotnet add package Microsoft.EntityFrameworkCore.Design -v 5.0.0
+
+>dotnet ef database update
 
 >dotnet build
 
@@ -39,7 +51,7 @@ _This simple web application allows users input different items that will then b
 
 ## License
 
-Copyright (c) _02/13/2022_ _by Nick Sullivan_
+Copyright (c) _03/25/2022_ _by Nick Sullivan_
 
 
 _Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:_
