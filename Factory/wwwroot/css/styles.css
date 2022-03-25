@@ -15,6 +15,21 @@ html, body {
 .btn {
   margin: 8px;
 }
+form {
+  text-align: left;
+}
+.date-label {
+  padding-right: 8px;
+}
+.engineer-container {
+  border-radius: 10px;
+  width: 130px;
+  height: 110px;
+  padding: 10px;
+  margin: 0px 10px;
+  overflow: hidden;
+  text-overflow: ellipsis; */
+/* }
 .table-empty {
   margin: 100px 0px;
 }
