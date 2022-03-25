@@ -17,7 +17,7 @@
 
 ## Description
 
-_This web application serves as a tool for factory managers to track the engineers responsible for maintaining different machines. By following the instructions bellow, the users will create a local SQL database that contains a many-to-many relationship between the classes of Engineer and Machine. Once the setup is complete, different engineers can be registered into the system with attributes like name, idle or occupied, and start date. Machine can also be registered with various attributes and assigned to engineers._
+_This web application serves as a tool for factory managers to track the engineers responsible for maintaining different machines. By following the instructions bellow, the users will create a local SQL database that contains a many-to-many relationship between the classes of Engineer and Machine. Once the setup is complete, different engineers can be registered into the system with attributes like name, idle or occupied, and start date. Machines can also be registered with various attributes and assigned to engineers._
 
 ## Setup Instructions
 
