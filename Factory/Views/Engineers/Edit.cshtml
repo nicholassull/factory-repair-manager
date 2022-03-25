@@ -1,0 +1,38 @@
+@{
+  Layout = "_Layout";
+}
+@model Factory.Models.Engineer
+
+<h2>Edit Engineer Details</h2>
+<hr />
+
+<h3>@Html.DisplayFor(model => model.Name)</h3>
+
+<div class="my-5 row justify-content-center">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.EngineerId)
+
+    <div class="form-group">
+      @Html.LabelFor(model => model.Name)
+      @Html.TextBoxFor(model => model.Name, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+      @Html.LabelFor(model => model.Status)
+      @Html.DropDownList("Status", new List<SelectListItem>
+      { 
+      new SelectListItem { Text = "Idle", Value = "Idle"},
+      new SelectListItem { Text = "Occupied", Value = "Occupied"},
+      }, "Select Status", new { @class = "form-control"})
+    </div>
+    <div class="form-group date-form-group">
+      @Html.LabelFor(model => model.HireDate, new { @class = "date-label"})
+      @Html.EditorFor(model => model.HireDate, new { @class = "form-control date-input"})
+    </div>
+    <div class="text-center">
+          <input type="submit" value="Save" class="btn btn-success" />
+    </div>
+  }
+</div>
+<hr />
+@Html.ActionLink("View Engineers", "Index", new {}, new { @class = "btn btn-outline-primary" })

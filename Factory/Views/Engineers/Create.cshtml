@@ -15,14 +15,11 @@
     </div>
     <div class="form-group">
       @Html.LabelFor(model => model.Status)
-
       @Html.DropDownList("Status", new List<SelectListItem>
       { 
       new SelectListItem { Text = "Idle", Value = "Idle"},
       new SelectListItem { Text = "Occupied", Value = "Occupied"},
       }, "Select Status", new { @class = "form-control"})
-
-      @* @Html.TextBoxFor(model => model.Status, new { @class = "form-control"}) *@
     </div>
     <div class="form-group date-form-group">
       @Html.LabelFor(model => model.HireDate, new { @class = "date-label"})
