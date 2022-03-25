@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+@model Factory.Models.Engineer;
+<h2 class="my-2">Delete Engineer</h2>
+<hr />
+<h5 class="my-4">Are you sure you'd like to remove @Html.DisplayFor(model => model.Name) as an engineer?</h5>
+
+<div class="row justify-content-center m-3">
+  @using (Html.BeginForm())
+  {
+    <input type="submit" value="Delete" class="btn btn-danger">
+  }
+</div>
+<hr />
+@Html.ActionLink("View Engineers", "Index", new {}, new { @class = "btn btn-outline-primary" })
