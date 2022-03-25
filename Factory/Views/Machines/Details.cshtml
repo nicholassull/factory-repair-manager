@@ -10,6 +10,7 @@
 <h3 class="m-3">@Html.DisplayFor(model => model.Model)</h3>
 <div class="row">
 
+@* add background color to differentiate *@
   <div class="col-5 mch-info-col">
     <div class="row justify-content-center" id="mch-info-container">
       <div class="eng-status m-3">
@@ -29,7 +30,9 @@
     }
     else
     {
-      <table id="machine-table" class="table table-striped">
+      @* add table dividers *@
+      <h5>Assigned Engineers</h5>
+      <table id="machine-table" class="table table-striped table-bordered">
         <thead class="thead-light">
           <tr>
             <th scope="col">Name</th>

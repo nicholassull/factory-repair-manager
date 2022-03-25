@@ -1,0 +1,16 @@
+@{
+  Layout = "_Layout";
+}
+@model Factory.Models.Machine;
+<h2 class="my-2">Delete Machine</h2>
+<hr />
+<h5 class="my-4">Are you sure you'd like to remove @Html.DisplayFor(model => model.Model) from your machine list?</h5>
+
+<div class="row justify-content-center m-3">
+  @using (Html.BeginForm())
+  {
+    <input type="submit" value="Delete" class="btn btn-danger">
+  }
+</div>
+<hr />
+@Html.ActionLink("View Machines", "Index", new {}, new { @class = "btn btn-outline-primary" })
