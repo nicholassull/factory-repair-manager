@@ -37,6 +37,7 @@
           <tr>
             <th scope="col">Name</th>
             <th scope="col">Status</th>
+            <th scope="col">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -45,6 +46,15 @@
             <tr>
               <td scope="row">@Html.ActionLink($"{@join.Engineer.Name}", "Details", "Engineers", new {id = @join.EngineerId})</td>
               <td>@join.Engineer.Status</td>
+              <td>
+                @using (Html.BeginForm("DeleteEngineer", "Machines"))
+                {
+                  <div class="row justify-content-center">
+                    @Html.Hidden("joinId", @join.EngineerMachineId)
+                  <input type="submit" value="Unassign" class="btn btn-sm btn-outline-danger unassign-btn"/>
+                  </div>
+                }
+              </td>
             </tr>
           }
         </tbody> 
@@ -59,3 +69,7 @@
 @Html.ActionLink("Assign Engineer", "AddEngineer", new { id = Model.MachineId }, new { @class = "btn btn-outline-primary" })
 @Html.ActionLink("Edit", "Edit", new { id = Model.MachineId }, new { @class = "btn btn-outline-primary" })
 @Html.ActionLink("Delete", "Delete", new { id = Model.MachineId }, new { @class = "btn btn-outline-primary" })
+
+
+
+@* @Html.ActionLink("Unassign", "DeleteEngineer", new { joinId = join.EngineerMachineId }, new { @class = "btn btn-sm btn-outline-danger unassign-btn" }) *@
