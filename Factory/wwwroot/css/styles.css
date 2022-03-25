@@ -18,6 +18,9 @@ html, body {
 form {
   text-align: left;
 }
+.date-form-group {
+  margin-top: 25px;
+}
 .date-label {
   padding-right: 8px;
 }
@@ -29,7 +32,7 @@ form {
   margin: 0px 10px;
   overflow: hidden;
   text-overflow: ellipsis; */
-/* }
+}
 .table-empty {
   margin: 100px 0px;
 }

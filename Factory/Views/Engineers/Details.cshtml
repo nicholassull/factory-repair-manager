@@ -1,0 +1,51 @@
+@{
+  Layout = "_Layout";
+}
+
+@model Factory.Models.Engineer;
+@using Factory.Models;
+
+<h2>Engineer Details</h2>
+<hr />
+<h3>@Html.DisplayFor(model => model.Name)</h3>
+<div class="row justify-content-center eng-info-container">
+  <div class="eng-status m-3">
+    <p><strong class="mr-1">@Html.DisplayNameFor(model => model.Status):</strong> @Html.DisplayFor(model => model.Status)</p>
+  </div>
+  <div class="eng-hire-date m-3">
+    <p><strong class="mr-1">@Html.DisplayNameFor(model => model.HireDate):</strong> @Html.DisplayFor(model => model.HireDate)</p>
+  </div>
+</div>
+
+@if (Model.JoinEntities.Count() == 0)
+{
+  <h5 class="text-center">@Html.DisplayFor(model => model.Name) has not been assigned to any machines.</h5>
+  <p>This can be done in a machine's details page.</p>
+}
+else
+{
+  <table id="joined-machines-table" class="table table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Model</th>
+        <th scope="col">Operational Status</th>
+        <th scope="col">Last Serviced</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach (var join in Model.JoinEntities)
+    {
+      <tr>
+        <td>@Html.ActionLink($"{join.Machine.Model}", "Details", "Machines", new {id = join.MachineId})</td>
+        <td>@join.Machine.OperationalStatus</td>
+        <td>@join.Machine.LastServiced</td>
+      </tr>
+    }
+    </tbody> 
+  </table>
+}
+<hr />
+
+@Html.ActionLink("View Engineers", "Index", new {}, new { @class = "btn btn-outline-primary" })
+@Html.ActionLink("Edit", "Edit", new { id = Model.EngineerId }, new { @class = "btn btn-outline-primary" })
+@Html.ActionLink("Delete", "Delete", new { id = Model.EngineerId }, new { @class = "btn btn-outline-primary" })
