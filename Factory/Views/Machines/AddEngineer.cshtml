@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+@model Factory.Models.Machine;
+<h2 class="my-2">Assign Engineer</h2>
+<hr />
+<h5 class="my-4">Which engineer would you like to assign to the @Html.DisplayFor(model => model.Model)?</h5>
+
+<div class="row justify-content-center m-3">
+  @using (Html.BeginForm())
+  {
+    @Html.HiddenFor(model => model.MachineId);
+    <div class="form-group">
+      @Html.Label("Assign Engineer")
+      @Html.DropDownList("EngineerId", ViewBag.EngineerId, "Select Engineer", new { @class = "form-control"})
+    </div>
+    <input type="submit" value="Delete" class="btn btn-danger">
+  }
+</div>
+<hr />
+@Html.ActionLink("View Machines", "Index", new {}, new { @class = "btn btn-outline-primary" })

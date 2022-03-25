@@ -74,5 +74,11 @@ namespace Factory.Controllers
       _db.Machines.Remove(thisMachine);
       return View("Index");
     }
+    public ActionResult AddEngineer(int id)
+    {
+      Machine thisMachine = _db.Machines.FirstOrDefault(machine => machine.MachineId == id);
+      ViewBag.EngineerId = new SelectList(_db.Engineers, "EngineerId", "Name");
+      return View(thisMachine);
+    }
   }
 }
