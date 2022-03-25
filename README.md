@@ -2,7 +2,7 @@
 
 #### By _**Nick Sullivan**_
 
-#### _An application to manage engineers and the machines in need of repair._
+#### _An application to manage engineers and machines in need of repair._
 
 ## Technologies Used
 
