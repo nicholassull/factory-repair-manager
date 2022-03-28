@@ -36,8 +36,6 @@ _This web application serves as a tool for factory managers to track the enginee
 * _Run the commands below_
 >dotnet tool install --global dotnet-ef --version 3.0.0
 
->dotnet add package Microsoft.EntityFrameworkCore.Design -v 5.0.0
-
 >dotnet ef database update
 
 >dotnet build
